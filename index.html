@@ -128,11 +128,11 @@
             url: 'https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/',
             headers: {
               'Content-type': 'application/json',
-              'Accept-Encoding': 'gzip',
               'Authorization': 'Bearer ' + access_token
             },
             method: 'POST',
-            dataType: 'json',
+            dataType: 'jsonp',
+            crossOrigin: true,
             data: {
               "Name__c": name,
               "Phone__c": phone,
@@ -144,7 +144,7 @@
             error: function(xhr, textStatus, error){
               console.log(xhr.statusText);
               console.log(textStatus);
-              alert(error);
+              console.log(error);
             }
           });
         })
