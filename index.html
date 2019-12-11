@@ -79,7 +79,7 @@
     </style>
     <body>
     
-    <form action="https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/" style="border:1px solid #ccc">
+    <form style="border:1px solid #ccc">
       <div class="container">
         <img src="../images/GEA.png" width="75px"/> <h1>GEA - Register</h1>
         <p>Please fill in this form to create an account.</p>
@@ -105,7 +105,7 @@
     
         <div class="clearfix">
           <button type="button" class="cancelbtn">Cancel</button>
-          <button id="submit" type="submit" class="signupbtn">Sign Up</button>
+          <button id="enter" type="button" class="signupbtn">Sign Up</button>
         </div>
       </div>
     </form>
@@ -120,7 +120,7 @@
         var phone = $("#phone").val();
         var email = $("#email").val();
 
-        $("#submit").click(function() {
+        $("#enter").click(function() {
           $.ajax({
             url: 'https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/',
             headers: {
@@ -128,7 +128,6 @@
               'Accept-Encoding': 'gzip',
               'Authorization': 'Bearer ' + access_token
             },
-            
             method: 'POST',
             dataType: 'json',
             data: {
