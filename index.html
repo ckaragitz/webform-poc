@@ -138,8 +138,13 @@
               "Phone__c": phone,
               "Email__c": email
             },
-            success: function(data){
-              alert('succes: '+ data);
+            success: function(msg){
+              alert( "Data Saved: " + msg );
+            },
+            error: function(xhr, textStatus, error){
+              console.log(xhr.statusText);
+              console.log(textStatus);
+              alert(error);
             }
           });
         })
