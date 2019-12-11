@@ -117,34 +117,42 @@
     <script>
       $(document).ready(function() {
 
-        var access_token = '00D6g000000Crew!AQEAQIyFlKQ_jet5uYBTfHohhfkkUSrlr8J8jv0pCt5P1FiQp5rpR943g9p9UShiFaFRWQIbJ6mRpt6islaTWExbAez1EsHj'
+        // auth variables
+        var url = "https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/";
+        var grantType = "password"
+        var client_id = "3MVG9LBJLApeX_PAeSFxqRsMZKPZUEQAyDuJq66oRcfgEiat_qcXuB1lxIn1F0U3PIqliwNSFPlRjZxBziEtb";
+        var client_secret = "745C864068240F9311E5CAD1EC3D468D14238288153E70A7D46A813123CEAE74";
+        var username = "ckaragitz@gea19.demo";
+        var password = "salesforce1";
+        var access_token = '00D6g000000Crew!AQEAQIyFlKQ_jet5uYBTfHohhfkkUSrlr8J8jv0pCt5P1FiQp5rpR943g9p9UShiFaFRWQIbJ6mRpt6islaTWExbAez1EsHj';
 
+        // form variables
         var name = $("#name").val();
         var phone = $("#phone").val();
         var email = $("#email").val();
 
         $("#enter").click(function() {
           $.ajax({
-            url: 'https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/',
-            headers: {
-              'Content-type': 'application/json',
-              'Authorization': 'Bearer ' + access_token
-            },
-            method: 'POST',
-            dataType: 'json',
-            crossOrigin: true,
+            url: url + "?grant_type=" +grantType+ "&client_id=" +clientID+ "&client_secret=" +clientSecret+ "&username=" +username+ "&password=" +password,
+            type: 'POST',
+            dataType :'application/json',
             data: {
               "Name__c": "Cameron",
               "Phone__c": "7347717060",
               "Email__c": "ckaragitz@gmail.com"
             },
-            success: function(msg){
-              alert( "Data Saved: " + msg );
+            beforeSend: function (request) {
+              request.setRequestHeader("Access-Control-Allow-Origin", "*");
+              request.setRequestHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
+              request.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Content-Range, Content-Disposition, Content-Description"); 
             },
-            error: function(xhr, textStatus, error){
-              console.log(xhr.statusText);
-              console.log(textStatus);
-              console.log(error);
+            crossDomain : true,
+            crossOrigin: true,
+            success : function(result) {
+                alert(result);
+            },
+            error : function(error) {
+                console.log(error);
             }
           });
         })
