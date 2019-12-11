@@ -142,6 +142,8 @@
             dataType:'json',
             headers: {
               "x-requested-with": "xhr",
+              'Content-type': 'application/json',
+              'Accept-Encoding': 'gzip',
               "Authorization": "Bearer " + access_token
             },
             data: {
