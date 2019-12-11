@@ -118,7 +118,8 @@
       $(document).ready(function() {
 
         // auth variables
-        var url = "https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/";
+        var CORS = "https://cors-anywhere.herokuapp.com/";
+        var url = CORS + "https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/";
         /*var grant_type = "password"
         var client_id = "3MVG9LBJLApeX_PAeSFxqRsMZKPZUEQAyDuJq66oRcfgEiat_qcXuB1lxIn1F0U3PIqliwNSFPlRjZxBziEtb";
         var client_secret = "745C864068240F9311E5CAD1EC3D468D14238288153E70A7D46A813123CEAE74";
@@ -135,8 +136,11 @@
           $.ajax({
             url: url,
             type: 'POST',
+            crossOrigin: true,
+            crossDomain : true,
+            cache :false,
+            dataType:'json',
             headers: {
-              "Content-Type": "application/json",
               "Access-Control-Allow-Origin": "*",
               "Authorization": "Bearer " + access_token
             },
@@ -145,13 +149,6 @@
               "Phone__c": "7347717060",
               "Email__c": "ckaragitz@gmail.com"
             },
-            beforeSend: function (request) {
-              request.setRequestHeader("Access-Control-Allow-Origin", "*");
-              request.setRequestHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT");
-              request.setRequestHeader("Access-Control-Allow-Headers", "Content-Type, Content-Range, Content-Disposition, Content-Description"); 
-            },
-            crossDomain : true,
-            crossOrigin: true,
             success : function(result) {
                 alert(result);
             },
