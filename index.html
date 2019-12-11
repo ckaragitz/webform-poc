@@ -137,9 +137,9 @@
             type: 'POST',
             headers: {
               "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "*",
               "Authorization": "Bearer " + access_token
             },
-            dataType:'application/json',
             data: {
               "Name__c": "Cameron",
               "Phone__c": "7347717060",
