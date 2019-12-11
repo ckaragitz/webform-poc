@@ -141,7 +141,7 @@
             cache :false,
             dataType:'json',
             headers: {
-              "Access-Control-Allow-Origin": "*",
+              "x-requested-with": "xhr",
               "Authorization": "Bearer " + access_token
             },
             data: {
