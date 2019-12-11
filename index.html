@@ -132,24 +132,27 @@
         var phone = $("#phone").val();
         var email = $("#email").val();
 
+        // data
+        data = {
+          "Name__c": "Cameron",
+          "Phone__c": "7347717060",
+          "Email__c": "ckaragitz@gmail.com"
+        }
+
         $("#enter").click(function() {
           $.ajax({
             url: url,
             type: 'POST',
             crossOrigin: true,
-            crossDomain : true,
-            cache :false,
-            dataType:'json',
+            crossDomain: true,
+            cache: false,
+            dataType: 'json',
+            contentType: 'application/json',
             headers: {
               "x-requested-with": "xhr",
-              'Content-type': 'application/json',
               "Authorization": "Bearer " + access_token
             },
-            data: {
-              "Name__c": "Cameron",
-              "Phone__c": "7347717060",
-              "Email__c": "ckaragitz@gmail.com"
-            },
+            data: JSON.stringify(data),
             success : function(result) {
                 alert(result);
             },
