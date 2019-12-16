@@ -123,13 +123,30 @@
       $(document).ready(function() {
 
         // auth variables
-        var CORS = "https://cors-anywhere.herokuapp.com/";
-        var url = CORS + "https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/";
-        /*var grant_type = "password"
+        oAuthURL = "https://login.salesforce.com/services/oauth2/token"
+        var grant_type = "password"
         var client_id = "3MVG9LBJLApeX_PAeSFxqRsMZKPZUEQAyDuJq66oRcfgEiat_qcXuB1lxIn1F0U3PIqliwNSFPlRjZxBziEtb";
         var client_secret = "745C864068240F9311E5CAD1EC3D468D14238288153E70A7D46A813123CEAE74";
         var username = "ckaragitz@gea19.demo";
-        var password = "salesforce1";*/
+        var password = "salesforce1";
+
+        $.ajax({
+          type: 'POST',
+          crossOrigin: true,
+          url: 'https://sfdc-cors.herokuapp.com/services/oauth2/token',
+          dataType: 'json',
+          cache :false,
+          data : {"grant_type": grant_type,"client_id": client_id, "client_secret": client_secret,"username": username,"password": password},
+          success : function (data) {
+            var returnedData = JSON.parse(response);
+            alert(returnedData)
+          },
+          error : function (data, errorThrown,status) {
+
+          }
+          });
+
+
         var access_token = '00D6g000000Crew!AQEAQEApF_tW8ezoxpDmFASmhhXjrPLfYCrAduwWDkPE18K6q2a4Lo6N1t04PjKwo5Int8pRdksb9GKuxRXOzt5LdawQI0gc';
 
         $("#cancel").click(function(){
@@ -137,10 +154,14 @@
         });
 
         $("#submit").click(function() {
-            // form variables
+          // form variables
           var name = $("#name").val();
           var phone = $("#phone").val();
           var email = $("#email").val();
+
+          // event URL
+          var CORS = "https://cors-anywhere.herokuapp.com/";
+          var url = CORS + "https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/";
 
           // data
           data = {
