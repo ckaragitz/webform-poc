@@ -124,7 +124,7 @@
 
         // auth variables
         var CORS = "https://cors-anywhere.herokuapp.com/";
-        var oAuthURL = "https://login.salesforce.com/services/oauth2/token"
+        var oAuthURL = CORS + "https://login.salesforce.com/services/oauth2/token"
         var grant_type = "password"
         var client_id = "3MVG9LBJLApeX_PAeSFxqRsMZKPZUEQAyDuJq66oRcfgEiat_qcXuB1lxIn1F0U3PIqliwNSFPlRjZxBziEtb";
         var client_secret = "745C864068240F9311E5CAD1EC3D468D14238288153E70A7D46A813123CEAE74";
@@ -160,7 +160,7 @@
           }
           });
 
-        var access_token = '00D6g000000Crew!AQEAQEApF_tW8ezoxpDmFASmhhXjrPLfYCrAduwWDkPE18K6q2a4Lo6N1t04PjKwo5Int8pRdksb9GKuxRXOzt5LdawQI0gc';
+        var access_token = '00D6g000000Crew!AQEAQLfqhbr9m5tJPD6BQAQUyN3oT9DTifa6SpAVbnyQXgdynlCpYwBAdAHqQ.BH.I1MC_S3k3E3NB2CZCWvr5gtsCBpRqCL';
 
         $("#cancel").click(function(){
           $('#form').trigger("reset");
