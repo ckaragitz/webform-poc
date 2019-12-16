@@ -145,8 +145,8 @@
             "x-requested-with": "xhr"
           },
           success : function (data) {
-            var returnedData = JSON.parse(response);
-            alert(returnedData)
+            var returnedData = JSON.parse(data);
+            console.log(returnedData);
           },
           error : function (data, errorThrown, status) {
 
