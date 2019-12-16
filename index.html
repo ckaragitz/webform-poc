@@ -146,7 +146,7 @@
           },
           success : function (data) {
             var returnedData = JSON.parse(data);
-            console.log(returnedData);
+            access_token = returnedData.access_token;
           },
           error : function (data, errorThrown, status) {
 
