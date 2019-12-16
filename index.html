@@ -131,7 +131,7 @@
         var username = "ckaragitz@gea19.demo";
         var password = "salesforce1";
 
-        var data = {
+        var authData = {
           "grant_type": grant_type,
           "client_id": client_id,
           "client_secret": client_secret,
@@ -150,7 +150,7 @@
           headers: {
             "x-requested-with": "xhr"
           },
-          data : JSON.stringify(data),
+          data : authData,
           success : function (data) {
             var returnedData = JSON.parse(response);
             alert(returnedData)
@@ -159,7 +159,6 @@
 
           }
           });
-
 
         var access_token = '00D6g000000Crew!AQEAQEApF_tW8ezoxpDmFASmhhXjrPLfYCrAduwWDkPE18K6q2a4Lo6N1t04PjKwo5Int8pRdksb9GKuxRXOzt5LdawQI0gc';
 
@@ -178,7 +177,7 @@
           var url = CORS + "https://gea-dxp-demo-2019.my.salesforce.com/services/data/v46.0/sobjects/Webform__e/";
 
           // data
-          data = {
+          var data = {
             "Name__c": name,
             "Phone__c": phone,
             "Email__c": email
