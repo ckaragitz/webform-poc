@@ -131,7 +131,7 @@
         var CORS = "https://cors-anywhere.herokuapp.com/";
         var oAuthURL = CORS + "https://login.salesforce.com/services/oauth2/token" + "?grant_type=" + grant_type + "&client_id=" + client_id + "&client_secret=" + client_secret + "&username=" + username + "&password=" + password
 
-        var access_token = '00D6g000000Crew!AQEAQLfqhbr9m5tJPD6BQAQUyN3oT9DTifa6SpAVbnyQXgdynlCpYwBAdAHqQ.BH.I1MC_S3k3E3NB2CZCWvr5gtsCBpRqCL';
+        var access_token;
 
         $.ajax({
           type: 'POST',
