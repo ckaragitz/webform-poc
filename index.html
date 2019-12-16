@@ -124,20 +124,12 @@
 
         // auth variables
         var CORS = "https://cors-anywhere.herokuapp.com/";
-        var oAuthURL = CORS + "https://login.salesforce.com/services/oauth2/token"
+        var oAuthURL = CORS + "https://login.salesforce.com/services/oauth2/token" + "?grant_type=" + grant_type + "&client_id=" + client_id + "&client_secret=" + client_secret + "&username=" + username + "&password=" + password
         var grant_type = "password"
         var client_id = "3MVG9LBJLApeX_PAeSFxqRsMZKPZUEQAyDuJq66oRcfgEiat_qcXuB1lxIn1F0U3PIqliwNSFPlRjZxBziEtb";
         var client_secret = "745C864068240F9311E5CAD1EC3D468D14238288153E70A7D46A813123CEAE74";
         var username = "ckaragitz@gea19.demo";
         var password = "salesforce1";
-
-        var authData = {
-          "grant_type": grant_type,
-          "client_id": client_id,
-          "client_secret": client_secret,
-          "username": username,
-          "password": password
-        }
 
         $.ajax({
           type: 'POST',
@@ -150,7 +142,6 @@
           headers: {
             "x-requested-with": "xhr"
           },
-          data : JSON.stringify(authData),
           success : function (data) {
             var returnedData = JSON.parse(response);
             alert(returnedData)
