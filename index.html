@@ -145,8 +145,9 @@
             "x-requested-with": "xhr"
           },
           success : function (data) {
-            var response = JSON.parse(data);
+            var response = data;
             access_token = response.access_token;
+            console.log(access_token);
           },
           error : function (data, errorThrown, status) {
             console.log(errorThrown);
