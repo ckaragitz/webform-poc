@@ -131,6 +131,8 @@
         var CORS = "https://cors-anywhere.herokuapp.com/";
         var oAuthURL = CORS + "https://login.salesforce.com/services/oauth2/token" + "?grant_type=" + grant_type + "&client_id=" + client_id + "&client_secret=" + client_secret + "&username=" + username + "&password=" + password
 
+        var access_token = ''
+        
         $.ajax({
           type: 'POST',
           crossOrigin: true,
@@ -143,11 +145,11 @@
             "x-requested-with": "xhr"
           },
           success : function (data) {
-            var response = JSON.parse(data);
-            access_token = response.access_token;
+            var response = JSON.parse(data.data);
+            var access_token = response.access_token;
           },
           error : function (data, errorThrown, status) {
-
+            console.log(errorThrown);
           }
           });
 
