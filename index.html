@@ -133,6 +133,7 @@
 
         var access_token = ''
         
+        // oAuth request for access token
         $.ajax({
           type: 'POST',
           crossOrigin: true,
@@ -174,6 +175,7 @@
             "Email__c": email
           };
 
+          // publish data to the event bus
           $.ajax({
             url: url,
             type: 'POST',
